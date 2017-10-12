@@ -8,7 +8,8 @@ pub struct Config {
     pub redis_url: String,
     pub redis_prefix: String,
     pub sendgrid_api_key: String,
-    pub email_from_address: String
+    pub email_from_address: String,
+    pub email_from_name: Option<String>
 }
 
 #[derive(Deserialize)]
@@ -16,7 +17,8 @@ struct RawConfig {
     redis_url: Option<String>,
     redis_prefix: Option<String>,
     sendgrid_api_key: String,
-    email_from_address: String
+    email_from_address: String,
+    email_from_name: Option<String>
 }
 
 impl From<RawConfig> for Config {
@@ -25,7 +27,8 @@ impl From<RawConfig> for Config {
             redis_url: other.redis_url.unwrap_or("redis://127.0.0.1/".to_string()),
             redis_prefix: other.redis_prefix.unwrap_or("geekapk_".to_string()),
             sendgrid_api_key: other.sendgrid_api_key,
-            email_from_address: other.email_from_address
+            email_from_address: other.email_from_address,
+            email_from_name: other.email_from_name
         }
     }
 }

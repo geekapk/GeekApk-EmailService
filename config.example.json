@@ -1,4 +1,5 @@
 {
     "sendgrid_api_key": "SENDGRID_API_KEY_HERE",
-    "email_from_address": "FROM_EMAIL_HERE"
+    "email_from_address": "FROM_EMAIL_HERE",
+    "email_from_name": "GeekApk"
 }

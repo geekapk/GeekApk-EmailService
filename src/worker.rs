@@ -65,6 +65,9 @@ fn send_mail(
 
     let mut from_email = sendgrid::v3::Email::new();
     from_email.set_email(config.email_from_address.as_str());
+    if let Some(ref v) = config.email_from_name {
+        from_email.set_name(v.as_str());
+    }
     mail.set_from(from_email);
 
     let mut content = sendgrid::v3::Content::new();
